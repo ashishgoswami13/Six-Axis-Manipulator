@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o -o ContinuousTeach  /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/../../../libSCServo.a -lpthread 
