@@ -1,0 +1,105 @@
+╔═══════════════════════════════════════════════════════════════╗
+║         MANUAL CONTROL - QUICK REFERENCE GUIDE               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📁 LOCATION
+   /home/dev/Six Axis Manipulator/SCServo_Linux_220329/
+   SCServo_Linux/examples/ST3215_Control/ManualControl/
+
+🔨 BUILD
+   Option 1: ./build.sh
+   Option 2: mkdir -p build && cd build && cmake .. && make
+
+▶️  RUN
+   cd build
+   ./ManualControl                    # Default: /dev/ttyACM0 @ 1M baud
+   ./ManualControl /dev/ttyUSB0       # Custom port
+   ./ManualControl /dev/ttyACM0 1000000  # Custom port & baud
+
+📋 MENU OPTIONS
+   1. Control Individual Servo        - Precise control of each joint
+   2. Read All Servo Status          - Quick status overview
+   3. Home All Servos                - Center all servos (2048)
+   4. Move All Servos                - Set same position for all
+   5. Quick Presets                  - Predefined positions
+   6. Test Connection (Ping)         - Verify servo connectivity
+   7. Set Speed & Acceleration       - Adjust movement parameters
+   8. Circle Motion ★ NEW            - Trace circles in horizontal plane
+   0. Exit                           - Close program
+
+🎮 SERVO CONTROL OPTIONS
+   1. Set Specific Position          - Enter exact value (0-4095)
+   2. Move to Center                 - Go to 2048
+   3. Move to Min                    - Go to 0
+   4. Move to Max                    - Go to 4095
+   5. Read Detailed Feedback         - All sensor data
+   6. Incremental Control            - +/- adjustments
+
+📊 POSITION RANGE
+   Minimum:  0
+   Center:   2048
+   Maximum:  4095
+   Resolution: ~0.088° per step
+
+🔧 DEFAULT PARAMETERS
+   Speed:        2400 steps/sec (max)
+   Acceleration: 50 (x100 steps/sec²)
+   Baud Rate:    1000000 (1M)
+
+🤖 SERVO CONFIGURATION
+   Joint 1: ID 1  - Base
+   Joint 2: ID 2  - Shoulder
+   Joint 3: ID 3  - Elbow
+   Joint 4: ID 4  - Wrist 1
+   Joint 5: ID 5  - Wrist 2
+   Joint 6: ID 6  - Wrist 3
+   Joint 7: ID 7  - Gripper
+
+📖 FEEDBACK DATA
+   - Position:    Current angle (0-4095)
+   - Speed:       Movement speed (steps/sec)
+   - Load:        Output load (0-1000)
+   - Voltage:     Supply voltage (x0.1V)
+   - Temperature: Servo temp (°C)
+   - Moving:      Motion status (Yes/No)
+   - Current:     Current draw (mA)
+
+⚠️  TROUBLESHOOTING
+   Permission denied:
+     sudo usermod -a -G dialout $USER
+     (logout and login)
+   
+   No servo response:
+     - Check power
+     - Verify servo IDs match configuration
+     - Check baud rate (default: 1000000)
+     - Use Ping (option 6) to test
+   
+   Wrong port:
+     ls /dev/ttyACM* /dev/ttyUSB*
+
+💡 TIPS
+   - Start with slow speeds when testing
+   - Use Home function before starting
+   - Monitor temperature during extended use
+   - Save custom positions as presets
+   - Use incremental control for fine adjustments
+   - Circle motion: Start with radius 200-300 for safety
+   - Use 36 points for smooth circular motion
+
+🌀 CIRCLE MOTION PARAMETERS (Option 8)
+   Center Position:  Base joint center (default: 2048)
+   Radius:          50-1000 steps (recommend: 300-500)
+   Points/Circle:   8-360 (36 = smooth, 8 = octagon)
+   Loops:           1-100 repetitions
+   Joints:          Joint 1 (Base) + Joint 2 (Shoulder)
+
+🛡️  SAFETY
+   ⚠️  Ensure clear workspace before moving
+   ⚠️  Keep emergency stop accessible
+   ⚠️  Never exceed mechanical limits
+   ⚠️  Monitor load and temperature
+
+═══════════════════════════════════════════════════════════════
+For detailed information, see README.md
+═══════════════════════════════════════════════════════════════
