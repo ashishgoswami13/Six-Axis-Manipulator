@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/Ping.cpp" "CMakeFiles/Ping.dir/Ping.cpp.o" "gcc" "CMakeFiles/Ping.dir/Ping.cpp.o.d"
+  "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/Ping.cpp" "CMakeFiles/Ping.dir/Ping.cpp.o" "gcc" "CMakeFiles/Ping.dir/Ping.cpp.o.d"
   )
 
 # Targets to which this target links.

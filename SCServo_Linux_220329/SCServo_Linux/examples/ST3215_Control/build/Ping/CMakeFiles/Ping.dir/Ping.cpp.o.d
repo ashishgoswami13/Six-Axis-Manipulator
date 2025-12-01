@@ -1,5 +1,5 @@
 CMakeFiles/Ping.dir/Ping.cpp.o: \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/Ping.cpp \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/Ping.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -150,11 +150,11 @@ CMakeFiles/Ping.dir/Ping.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCServo.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SMS_STS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCSerial.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../INST.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCServo.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SMS_STS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCSerial.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../SCS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/Ping/../../../INST.h \
  /usr/include/termios.h /usr/include/aarch64-linux-gnu/bits/termios.h \
  /usr/include/aarch64-linux-gnu/bits/termios-struct.h \
  /usr/include/aarch64-linux-gnu/bits/termios-c_cc.h \

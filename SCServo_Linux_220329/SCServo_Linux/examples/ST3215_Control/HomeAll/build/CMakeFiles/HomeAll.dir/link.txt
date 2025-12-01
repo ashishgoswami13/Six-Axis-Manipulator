@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -O3 -rdynamic CMakeFiles/HomeAll.dir/HomeAll.cpp.o -o HomeAll   -L"/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/HomeAll/../../.."  -Wl,-rpath,"/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/HomeAll/../../.." ../../../../libSCServo.a 

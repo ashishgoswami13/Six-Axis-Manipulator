@@ -1,5 +1,5 @@
 CMakeFiles/TeachMode.dir/TeachMode.cpp.o: \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -183,11 +183,11 @@ CMakeFiles/TeachMode.dir/TeachMode.cpp.o: \
  /usr/include/linux/falloc.h /usr/include/aarch64-linux-gnu/bits/stat.h \
  /usr/include/aarch64-linux-gnu/bits/struct_stat.h \
  /usr/include/aarch64-linux-gnu/bits/fcntl2.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCServo.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SMS_STS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCSerial.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../INST.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCServo.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SMS_STS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCSerial.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../SCS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../INST.h \
  /usr/include/string.h /usr/include/strings.h \
  /usr/include/aarch64-linux-gnu/bits/strings_fortified.h \
  /usr/include/aarch64-linux-gnu/bits/string_fortified.h

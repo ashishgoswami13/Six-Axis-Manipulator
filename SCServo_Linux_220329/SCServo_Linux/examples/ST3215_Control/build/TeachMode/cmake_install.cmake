@@ -1,4 +1,4 @@
-# Install script for directory: /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode
+# Install script for directory: /home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

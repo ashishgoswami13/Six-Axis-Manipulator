@@ -61,6 +61,13 @@ static const int JOINT_MIN_DEG[7] = {-165, -125, -140, -140, -140, -175, -180};
 static const int JOINT_MAX_DEG[7] = { 165,  125,  140,  140,  140,  175,  180};
 
 // ============================================================================
+// COORDINATE TRANSFORM
+// ============================================================================
+// Physical robot is mounted with 90° clockwise rotation from zero position
+// To align with camera/code coordinates, we apply +90° offset to J1 commands
+static const double J1_OFFSET = 90.0;
+
+// ============================================================================
 // CONVERSION FUNCTION: Degrees → Servo Steps
 // ============================================================================
 //
@@ -211,6 +218,14 @@ int main(int argc, char** argv){
         // Target angle: 0° (home position)
         // ----------------------------------------------------------------
         double want_deg = 0.0;
+        
+        // ----------------------------------------------------------------
+        // Apply coordinate transform for J1 (base rotation)
+        // ----------------------------------------------------------------
+        // Physical robot is rotated 90° clockwise, compensate with offset
+        if(i == 0){  // J1 only
+            want_deg += J1_OFFSET;
+        }
         
         // ----------------------------------------------------------------
         // SAFETY: Clamp to joint limits

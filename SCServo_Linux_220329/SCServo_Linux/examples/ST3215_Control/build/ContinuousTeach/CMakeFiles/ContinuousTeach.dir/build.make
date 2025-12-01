@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach
+CMAKE_SOURCE_DIR = "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach
+CMAKE_BINARY_DIR = "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ContinuousTeach.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/ContinuousTeach.dir/progress.make
 include CMakeFiles/ContinuousTeach.dir/flags.make
 
 CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o: CMakeFiles/ContinuousTeach.dir/flags.make
-CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o: /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp
+CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o: /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp
 CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o: CMakeFiles/ContinuousTeach.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o -MF CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o.d -o CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o -c /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o -MF CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o.d -o CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o -c "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp"
 
 CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp > CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp" > CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.i
 
 CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp -o CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/ContinuousTeach.cpp" -o CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.s
 
 # Object files for target ContinuousTeach
 ContinuousTeach_OBJECTS = \
@@ -92,9 +92,9 @@ ContinuousTeach_EXTERNAL_OBJECTS =
 
 ContinuousTeach: CMakeFiles/ContinuousTeach.dir/ContinuousTeach.cpp.o
 ContinuousTeach: CMakeFiles/ContinuousTeach.dir/build.make
-ContinuousTeach: /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/../../../libSCServo.a
+ContinuousTeach: /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach/../../../libSCServo.a
 ContinuousTeach: CMakeFiles/ContinuousTeach.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ContinuousTeach"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ContinuousTeach"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ContinuousTeach.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -106,6 +106,6 @@ CMakeFiles/ContinuousTeach.dir/clean:
 .PHONY : CMakeFiles/ContinuousTeach.dir/clean
 
 CMakeFiles/ContinuousTeach.dir/depend:
-	cd /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles/ContinuousTeach.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/ContinuousTeach" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/ContinuousTeach/CMakeFiles/ContinuousTeach.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousTeach.dir/depend
 

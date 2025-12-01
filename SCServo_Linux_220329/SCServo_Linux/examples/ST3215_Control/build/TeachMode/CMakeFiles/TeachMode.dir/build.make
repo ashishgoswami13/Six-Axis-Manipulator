@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode
+CMAKE_SOURCE_DIR = "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode
+CMAKE_BINARY_DIR = "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TeachMode.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/TeachMode.dir/progress.make
 include CMakeFiles/TeachMode.dir/flags.make
 
 CMakeFiles/TeachMode.dir/TeachMode.cpp.o: CMakeFiles/TeachMode.dir/flags.make
-CMakeFiles/TeachMode.dir/TeachMode.cpp.o: /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp
+CMakeFiles/TeachMode.dir/TeachMode.cpp.o: /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp
 CMakeFiles/TeachMode.dir/TeachMode.cpp.o: CMakeFiles/TeachMode.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TeachMode.dir/TeachMode.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TeachMode.dir/TeachMode.cpp.o -MF CMakeFiles/TeachMode.dir/TeachMode.cpp.o.d -o CMakeFiles/TeachMode.dir/TeachMode.cpp.o -c /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TeachMode.dir/TeachMode.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TeachMode.dir/TeachMode.cpp.o -MF CMakeFiles/TeachMode.dir/TeachMode.cpp.o.d -o CMakeFiles/TeachMode.dir/TeachMode.cpp.o -c "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp"
 
 CMakeFiles/TeachMode.dir/TeachMode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TeachMode.dir/TeachMode.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp > CMakeFiles/TeachMode.dir/TeachMode.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp" > CMakeFiles/TeachMode.dir/TeachMode.cpp.i
 
 CMakeFiles/TeachMode.dir/TeachMode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TeachMode.dir/TeachMode.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp -o CMakeFiles/TeachMode.dir/TeachMode.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/TeachMode.cpp" -o CMakeFiles/TeachMode.dir/TeachMode.cpp.s
 
 # Object files for target TeachMode
 TeachMode_OBJECTS = \
@@ -92,9 +92,9 @@ TeachMode_EXTERNAL_OBJECTS =
 
 TeachMode: CMakeFiles/TeachMode.dir/TeachMode.cpp.o
 TeachMode: CMakeFiles/TeachMode.dir/build.make
-TeachMode: /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../libSCServo.a
+TeachMode: /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/../../../libSCServo.a
 TeachMode: CMakeFiles/TeachMode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TeachMode"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TeachMode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TeachMode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -106,6 +106,6 @@ CMakeFiles/TeachMode.dir/clean:
 .PHONY : CMakeFiles/TeachMode.dir/clean
 
 CMakeFiles/TeachMode.dir/depend:
-	cd /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles/TeachMode.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode" "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/TeachMode/CMakeFiles/TeachMode.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/TeachMode.dir/depend
 

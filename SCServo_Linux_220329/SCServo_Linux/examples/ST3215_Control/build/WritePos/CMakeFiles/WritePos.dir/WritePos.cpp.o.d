@@ -1,5 +1,5 @@
 CMakeFiles/WritePos.dir/WritePos.cpp.o: \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/WritePos.cpp \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/WritePos.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/aarch64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h \
@@ -158,11 +158,11 @@ CMakeFiles/WritePos.dir/WritePos.cpp.o: \
  /usr/include/aarch64-linux-gnu/bits/unistd.h \
  /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCServo.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SMS_STS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCSerial.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCS.h \
- /home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../INST.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCServo.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SMS_STS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCSerial.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../SCS.h \
+ /home/dev/Six\ Axis\ Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/../../../INST.h \
  /usr/include/termios.h /usr/include/aarch64-linux-gnu/bits/termios.h \
  /usr/include/aarch64-linux-gnu/bits/termios-struct.h \
  /usr/include/aarch64-linux-gnu/bits/termios-c_cc.h \

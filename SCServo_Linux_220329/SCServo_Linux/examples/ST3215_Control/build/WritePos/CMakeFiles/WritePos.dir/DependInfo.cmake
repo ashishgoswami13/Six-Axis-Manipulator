@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/dev/Downloads/SCServo_Linux/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/WritePos.cpp" "CMakeFiles/WritePos.dir/WritePos.cpp.o" "gcc" "CMakeFiles/WritePos.dir/WritePos.cpp.o.d"
+  "/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/WritePos/WritePos.cpp" "CMakeFiles/WritePos.dir/WritePos.cpp.o" "gcc" "CMakeFiles/WritePos.dir/WritePos.cpp.o.d"
   )
 
 # Targets to which this target links.
