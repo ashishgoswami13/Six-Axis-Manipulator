@@ -185,24 +185,41 @@ class RobotController:
                 return position
         return None
     
-    def get_joint_positions_degrees(self):
+    def get_joint_positions_degrees(self, retries=3):
         """
-        Read all joint positions in degrees
+        Read all joint positions in degrees with retry logic
+        
+        Args:
+            retries: Number of retry attempts per servo
         
         Returns:
             List of 7 joint angles in degrees, or None if read failed
         """
         positions = []
         for servo_id, _, _, _, _ in self.servo_config:
-            pos_steps = self.read_position(servo_id)
+            pos_steps = None
+            # Retry reading each servo
+            for attempt in range(retries):
+                pos_steps = self.read_position(servo_id)
+                if pos_steps is not None:
+                    break
+                time.sleep(0.01)  # Brief delay before retry
+            
             if pos_steps is not None:
                 pos_deg = steps_to_degrees(pos_steps)
                 positions.append(pos_deg)
             else:
+                print(f"⚠ Warning: Failed to read servo {servo_id} after {retries} attempts")
                 return None
+        
+        # Validate positions - check for corrupted data (all joints same value is suspicious)
+        if len(set([round(p, 0) for p in positions])) == 1:
+            print(f"⚠ Warning: All joints report same position ({positions[0]:.1f}°) - likely corrupted data")
+            return None
+        
         return positions
     
-    def set_joint_positions_degrees(self, joint_angles_deg, speed=None, acc=None):
+    def set_joint_positions_degrees(self, joint_angles_deg, speed=None, acc=None, max_change=None):
         """
         Set all joint positions from degrees
         
@@ -210,6 +227,7 @@ class RobotController:
             joint_angles_deg: List of 7 joint angles in degrees
             speed: Movement speed (default: self.default_speed)
             acc: Acceleration (default: self.default_acc)
+            max_change: Override max position change limit (steps). None = use default safety limit
         
         Returns:
             True if command sent successfully
@@ -218,25 +236,64 @@ class RobotController:
             print(f"Error: Expected {self.num_servos} joint angles, got {len(joint_angles_deg)}")
             return False
         
+        # Read actual current positions for accurate change calculation
+        actual_positions = self.get_joint_positions_degrees(retries=5)
+        if actual_positions:
+            # Update cache with actual positions
+            self.current_positions = [degrees_to_steps(p) for p in actual_positions]
+        else:
+            print("⚠ Warning: Failed to read positions, movement may be inaccurate!")
+            # Don't proceed if we can't read positions - safety risk
+            return False
+        
         # Convert to steps and apply safety checks
         target_steps = []
         for i, (servo_id, name, min_steps, max_steps, home_steps) in enumerate(self.servo_config):
             # Convert to steps
             steps = degrees_to_steps(joint_angles_deg[i])
             
-            # Safety check: clamp to limits
-            if steps < min_steps or steps > max_steps:
-                print(f"⚠ Warning: {name} target {steps} steps outside limits [{min_steps}, {max_steps}]")
-                steps = max(min_steps, min(max_steps, steps))
+            # Safety check: verify within limits (handle wrap-around)
+            in_range = False
+            if min_steps <= max_steps:
+                # Normal range (no wrap-around)
+                in_range = min_steps <= steps <= max_steps
+                if not in_range:
+                    print(f"⚠ Warning: {name} target {steps} steps outside limits [{min_steps}, {max_steps}]")
+                    steps = max(min_steps, min(max_steps, steps))
+            else:
+                # Wrap-around range (e.g., -165° to +165° becomes 2219-1877 in steps)
+                # Valid if steps >= min_steps OR steps <= max_steps
+                in_range = (steps >= min_steps) or (steps <= max_steps)
+                if not in_range:
+                    # Clamp to nearest boundary
+                    dist_to_min = min(abs(steps - min_steps), abs(steps + 4096 - min_steps))
+                    dist_to_max = min(abs(steps - max_steps), abs(steps - 4096 - max_steps))
+                    if dist_to_min < dist_to_max:
+                        steps = min_steps
+                    else:
+                        steps = max_steps
+                    print(f"⚠ Warning: {name} target outside wrap-around range, clamped to {steps}")
             
-            # Safety check: limit change rate
+            # Safety check: limit change rate (with wrap-around handling)
             change = abs(steps - self.current_positions[i])
-            if change > self.max_position_change:
-                print(f"⚠ Warning: {name} change too large ({change} steps), clamping to {self.max_position_change}")
+            # Handle wrap-around for change calculation
+            if change > 2048:  # More than half circle, wrap the other way
+                change = 4096 - change
+            
+            # Use custom max_change if provided, otherwise use default
+            effective_max_change = max_change if max_change is not None else self.max_position_change
+            
+            if change > effective_max_change:
+                print(f"⚠ Warning: {name} change too large ({change} steps), clamping to {effective_max_change}")
                 if steps > self.current_positions[i]:
-                    steps = self.current_positions[i] + self.max_position_change
+                    steps = self.current_positions[i] + effective_max_change
                 else:
-                    steps = self.current_positions[i] - self.max_position_change
+                    steps = self.current_positions[i] - effective_max_change
+                # Wrap around if needed
+                if steps >= 4096:
+                    steps -= 4096
+                elif steps < 0:
+                    steps += 4096
             
             target_steps.append(steps)
         
@@ -283,7 +340,15 @@ class RobotController:
         for i, (servo_id, name, min_steps, max_steps, _) in enumerate(self.servo_config):
             steps = degrees_to_steps(joint_angles_deg[i])
             
-            if steps < min_steps or steps > max_steps:
+            # Handle wrap-around case (when range crosses 0°)
+            if min_steps > max_steps:
+                # Range wraps around (e.g., 2219-4095 and 0-1877 for -165° to +165°)
+                in_range = steps >= min_steps or steps <= max_steps
+            else:
+                # Normal range
+                in_range = min_steps <= steps <= max_steps
+            
+            if not in_range:
                 min_deg = steps_to_degrees(min_steps)
                 max_deg = steps_to_degrees(max_steps)
                 return False, f"{name}: {joint_angles_deg[i]:.1f}° outside safe range [{min_deg:.1f}°, {max_deg:.1f}°]"
