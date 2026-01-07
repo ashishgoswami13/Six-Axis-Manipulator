@@ -421,6 +421,3 @@ This is a personal robot project. Feel free to fork and adapt for your own robot
 ---
 
 **Ready to start?** Run `python3 interactive_calibration.py` to calibrate your robot! 🚀
-
-
-**Ready to start?** Run `python3 interactive_calibration.py` to calibrate your robot! 🚀
