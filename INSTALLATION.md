@@ -10,7 +10,34 @@ Complete setup instructions for a fresh installation on a new device.
 - CMake and build tools
 - USB port access
 
-## Installation Steps
+## Quick Start (Automated)
+
+For a quick automated setup, follow these steps:
+
+```bash
+# 1. Clone your repo
+git clone <your-repo-url>
+cd "Six Axis Manipulator"
+
+# 2. Run automated setup
+./setup.sh
+
+# 3. Activate environment & calibrate
+source venv/bin/activate
+cd lerobot_integration/scripts
+python teleoperate_kikobot.py --calibrate-only
+
+# 4. Start using!
+python teleoperate_kikobot.py
+```
+
+**That's it!** The setup script handles dependency installation and building.
+
+---
+
+## Manual Installation Steps
+
+For manual control or troubleshooting, follow these detailed steps:
 
 ### 1. Clone the Repository
 
