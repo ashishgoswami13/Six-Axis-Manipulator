@@ -1,0 +1,3 @@
+/home/dev/Six Axis Manipulator/external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/build/CMakeFiles/TeachMode.dir
+/home/dev/Six Axis Manipulator/external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/build/CMakeFiles/edit_cache.dir
+/home/dev/Six Axis Manipulator/external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/TeachMode/build/CMakeFiles/rebuild_cache.dir

@@ -1,118 +1,147 @@
-# Kikobot LeRobot Integration
+# 🤖 Kikobot LeRobot Integration
 
-Leader-follower teleoperation system for Kikobot 6-DOF robot arms with LeRobot framework.
+LeRobot integration for Kikobot 6-DOF robotic arm: teleoperation, dataset recording, and imitation learning policy training.
 
-## Hardware Configuration
+## Overview
 
-- **Leader Arm** (`/dev/ttyACM1`): 6 motors (IDs 1-6), no gripper - manually movable
-- **Follower Arm** (`/dev/ttyACM0`): 7 motors (IDs 1-7), includes gripper - motorized
+Dual-arm setup for collecting demonstration data and training robot policies:
+- **Leader arm** (manual, torque off) → provides demonstrations
+- **Follower arm** (motorized, torque on) → executes actions or trained policies
+- Supports **ACT**, **Diffusion Policy**, and **TDMPC** training
 
-## Commands
+## Hardware
 
-### Calibration
+| Component | Port | Motors | Gripper | Mode |
+|-----------|------|--------|---------|------|
+| **Leader** | `/dev/ttyACM1` | 6 (IDs 1-6) | No | Manual (torque off) |
+| **Follower** | `/dev/ttyACM0` | 7 (IDs 1-7) | Yes (ID 7) | Motorized (torque on) |
 
-Calibrate both arms (required before first use):
+- Servos: Waveshare ST3215 (Feetech STS3215), 1M baud
+- Control frequency: 50 Hz
+
+## Installation
+
 ```bash
-cd lerobot_integration/scripts
+pip install -r requirements.txt
+sudo usermod -a -G dialout $USER  # USB permissions
+```
+
+## Usage
+
+### 1. Calibration
+Establishes joint zero positions and ranges. **Required before first use.**
+
+```bash
 python teleoperate_kikobot.py --calibrate-only
 ```
-**Action:** Connects to both arms, displays current positions, guides through calibration workflow, saves calibration data, then exits.
 
-**Steps:**
-1. Type `c` when prompted for each arm
-2. Position arms in upright (home) position when asked
-3. Move each joint through full range of motion when prompted
+Saves calibration to `~/.cache/lerobot/calibration/kikobot_{leader,follower}.json`
 
----
+### 2. Teleoperation
+Leader-follower real-time mirroring at 50 Hz.
 
-### Teleoperation
-
-Start leader-follower teleoperation with manual gripper control:
 ```bash
-cd lerobot_integration/scripts
 python teleoperate_kikobot.py
 ```
-**Action:** Starts real-time mirroring at 50 Hz. Follower arm copies leader arm movements. Gripper controlled via keyboard.
 
-**Controls:**
-- Move leader arm manually → Follower mirrors
-- `↑` UP arrow: Open gripper (+5%)
-- `↓` DOWN arrow: Close gripper (-5%)  
-- `→` RIGHT arrow: Fine open (+1%)
-- `←` LEFT arrow: Fine close (-1%)
-- `Ctrl+C`: Stop teleoperation
+**Controls:** Move leader manually, follower mirrors. Arrow keys: `↑↓` gripper open/close (±5%), `←→` fine adjust (±1%)
 
----
+### 3. Dataset Recording
+Records demonstrations in LeRobot HDF5 format for policy training.
 
-### Dataset Recording
-
-Record demonstration dataset for imitation learning:
 ```bash
-cd lerobot_integration/scripts
-python record_dataset.py --repo-id my_robot_dataset --num-episodes 50
+python record_dataset.py --repo-id username/dataset_name --num-episodes 50
 ```
-**Action:** Records teleoperation episodes with timestamps, saves to LeRobot dataset format.
 
-**Options:**
-- `--repo-id`: Dataset name (required)
-- `--num-episodes`: Number of episodes to record (default: 50)
-- `--fps`: Recording frequency in Hz (default: 30)
-- `--warmup-time`: Seconds before recording starts (default: 3)
+**Workflow:** Press `r` to start, demonstrate task, press `s` to save, `q` to quit
 
----
+### 4. Policy Training
+Train imitation learning policies on collected demonstrations.
 
-## Files
+**ACT (Action Chunking Transformer)** - Good for sequential tasks:
+```bash
+python -m lerobot.scripts.train \
+    policy=act \
+    dataset_repo_id=username/dataset_name \
+    training.offline_steps=50000 \
+    device=cuda
+```
 
-- `robots/kikobot/` - Robot implementation classes
-  - `config_kikobot.py` - Configuration dataclasses
-  - `kikobot_leader.py` - Leader arm (manual input)
-  - `kikobot_follower.py` - Follower arm (motorized control)
-- `scripts/` - Executable scripts
-  - `teleoperate_kikobot.py` - Leader-follower teleoperation
-  - `record_dataset.py` - Dataset recording for ML
-  - `examples.py` - Usage examples
+**Diffusion Policy** - Good for dexterous manipulation:
+```bash
+python -m lerobot.scripts.train \
+    policy=diffusion \
+    dataset_repo_id=username/dataset_name \
+    training.offline_steps=50000 \
+    device=cuda
+```
 
----
+**TDMPC** - Model-based approach:
+```bash
+python -m lerobot.scripts.train \
+    policy=tdmpc \
+    dataset_repo_id=username/dataset_name \
+    device=cuda
+```
 
-## Calibration Files
+**Key training options:**
+- `policy.chunk_size=100` - Action prediction horizon (ACT)
+- `training.batch_size=8` - Batch size (adjust for GPU memory)
+- `training.lr=1e-4` - Learning rate
+- `wandb.enable=true` - Enable experiment tracking
 
-Located in `~/.cache/lerobot/calibration/`:
-- `kikobot_leader.json` - Leader arm calibration
-- `kikobot_follower.json` - Follower arm calibration
+### 5. Policy Deployment
+Run trained policy on robot hardware.
 
-To recalibrate, delete these files and run `--calibrate-only` again.
+```python
+# Load policy and run on follower arm
+from lerobot.common.policies.factory import make_policy
+from robots.kikobot import KikobotFollower, KikobotFollowerConfig
 
----
+policy = make_policy("outputs/train/.../checkpoints/050000", device="cuda")
+robot = KikobotFollower(KikobotFollowerConfig(port="/dev/ttyACM0"))
+robot.connect()
+
+# Policy loop: observation → policy → action → robot
+```
 
 ## Troubleshooting
 
 **Arms won't connect:**
-- Check USB connections: Leader=ACM1, Follower=ACM0
-- Verify servo power supply is on
-- Run: `ls /dev/ttyACM*` to confirm ports
+```bash
+ls /dev/ttyACM*  # Check ports exist
+sudo usermod -a -G dialout $USER  # Fix permissions, then logout/login
+```
 
-**Calibration errors:**
-- Ensure both arms are powered and connected
-- Check all servo cables are properly seated
-- Verify servo IDs are correct (Leader: 1-6, Follower: 1-7)
+**Calibration fails:** Delete `~/.cache/lerobot/calibration/kikobot_*.json` and recalibrate
 
-**Teleoperation not working:**
-- Run calibration first: `--calibrate-only`
-- Check that calibration files exist
-- Ensure leader arm moves freely (torque disabled)
-- Verify follower arm has torque enabled
+**Jerky movement:** Increase `position_smoothing_alpha` (leader) or lower `p_coefficient` (follower)
+
+**Training issues:**
+- CUDA OOM: Reduce `training.batch_size`
+- Loss not decreasing: Need 50-100 quality episodes, check data consistency
+- Dataset not found: Verify path with `ls -la data/username/dataset_name/`
+
+## Files
+
+```
+lerobot_integration/
+├── robots/kikobot/          # Robot implementations
+│   ├── config_kikobot.py    # Configuration classes
+│   ├── kikobot_leader.py    # Leader arm (input device)
+│   └── kikobot_follower.py  # Follower arm (control)
+└── scripts/
+    ├── teleoperate_kikobot.py   # Teleoperation & calibration
+    ├── record_dataset.py        # Dataset recording
+    └── examples.py              # Code examples
+```
+
+## Resources
+
+- [LeRobot Documentation](https://github.com/huggingface/lerobot)
+- [ACT Paper](https://arxiv.org/abs/2304.13705) - Transformer-based action chunking
+- [Diffusion Policy Paper](https://arxiv.org/abs/2303.04137) - Diffusion models for manipulation
 
 ---
 
-## Quick Start
-
-```bash
-# 1. First time setup - calibrate both arms
-python teleoperate_kikobot.py --calibrate-only
-
-# 2. Start teleoperation
-python teleoperate_kikobot.py
-
-# 3. Record dataset (optional)
-python record_dataset.py --repo-id my_demos --num-episodes 10
-```
+**Quick Start:** `python teleoperate_kikobot.py --calibrate-only` → `python record_dataset.py --repo-id user/dataset` → Train policy → Deploy! 🚀

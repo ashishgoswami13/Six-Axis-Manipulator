@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# User-specific data (not needed for fresh install)
+data/
+*.log
+*.hdf5
+saved_positions.json
+
+# Calibration cache (user-specific, generated on first use)
+.cache/
+
+# C++ Build artifacts (regenerate with cmake/make)
+*.o
+*.so
+*.a
+external/SCServo_Linux_220329/SCServo_Linux/build/
+external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/
+external/SCServo_Linux_220329/SCServo_Linux/examples/*/build/
+
+# Compiled executables from examples
+external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/*
+!external/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/.gitkeep

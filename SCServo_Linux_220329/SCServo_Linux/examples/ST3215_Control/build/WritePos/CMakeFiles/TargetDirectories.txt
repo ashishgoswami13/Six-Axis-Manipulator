@@ -1,3 +1,0 @@
-/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/WritePos/CMakeFiles/WritePos.dir
-/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/WritePos/CMakeFiles/edit_cache.dir
-/home/dev/Six Axis Manipulator/SCServo_Linux_220329/SCServo_Linux/examples/ST3215_Control/build/WritePos/CMakeFiles/rebuild_cache.dir
